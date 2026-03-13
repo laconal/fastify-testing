@@ -1,4 +1,4 @@
-import { errorCodes, type FastifyPluginAsync } from "fastify"
+import { type FastifyPluginAsync } from "fastify"
 import { getBookSchema, BooksSchema, newBookSchema, updateBookSchema, deleteBookSchema, getBookByUserSchema } from "./schemas.js"
 import { authenticate } from "../../middlewares/authentication.js"
 import { bookControllerCreate, bookControllerUpdate, bookControllerGet, bookControllerDelete, bookControllerGetBooksByAuthor } from "../../controllers/book-controller.js"

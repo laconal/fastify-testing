@@ -49,7 +49,7 @@ fastify.get("/", function(req, rep) {
 })
 
 fastify.register(user_routes, { prefix: "/api/v1"})
-// fastify.register(book_routes, { prefix: "/api/v1"})
+fastify.register(book_routes, { prefix: "/api/v1"})
 fastify.register(auth_routers, {prefix: "/api/v1"})
 
 fastify.listen({port: 3000}, function (err, address) {
