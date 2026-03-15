@@ -1,5 +1,3 @@
-import { describe } from "zod/v4/core"
-import type { User } from "../users-router/schemas.js"
 
 export interface bookInterface {
     id: number

@@ -1,12 +1,20 @@
 import prisma from "../lib/prisma.js";
-import type { newBookInterface } from "../schemas/book-interface.js";
 
 export const bookGetAll = async() => {
-    return await prisma.book.findMany()
+    const result = await prisma.book.findMany()
+    return result.map(book => ({
+        ...book,
+        createdDate: book.createdDate.toISOString()
+    }))
 }
 
 export const bookGet = async(id: number) => {
-    return await prisma.book.findUniqueOrThrow({where: {id: id}})
+    const result = await prisma.book.findUniqueOrThrow({where: {id: id}})
+    if (!result) return null
+    return {
+        ...result,
+        createdDate: result.createdDate.toISOString()
+    }
 }
 
 export const bookGetByAuthor = async(id: number) => {
